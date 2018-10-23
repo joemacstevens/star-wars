@@ -12,7 +12,7 @@ export default class Character extends Component{
     render(){
         return (
             <div className="character" onClick={this.sendCharacter.bind(this)}>
-                <img src={this.addImage(this.props.character.name)} />
+                <img src={this.addImage(this.props.character.name)} alt={this.props.character.name}/>
                 <h5>{this.props.character.name}</h5>
             </div>
         )

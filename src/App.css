@@ -60,3 +60,16 @@ img {
   margin-top: 10px;
   text-align: center;
 }
+
+.loader img {
+  width: 100%;
+}
+
+.error > * {
+  color: red;
+  text-align: center;
+}
+
+.error .message {
+  font-size: 50%;
+}

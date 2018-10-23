@@ -8,7 +8,7 @@ export default class Movie extends Component{
     render(){
         return (
             <div className="movie">
-                <img src={this.addImage(this.props.info.title)} />
+                <img src={this.addImage(this.props.info.title)} alt={this.props.info.title}/>
                 <h5>{this.props.info.title}</h5>
             </div>
         )
