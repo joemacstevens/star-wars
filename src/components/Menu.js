@@ -3,13 +3,28 @@ import Character from './Character.js'
 
 export default class Menu extends Component{
 
+    constructor(){
+        super();
+        this.state = {
+            current: ""
+        }
+    }
+
+    updateCurrent(name){
+        this.setState({current: name})
+    }
+
     render(){
         return (
             <aside className="sidebar-left">
             {this.props.characters.characters.map((character,index) => (
-                <div className="character">
-                    <Character character={character} key={character.name} movies={this.props.movies}/>
-                </div>
+                <Character 
+                    character={character} 
+                    key={character.name} 
+                    movies={this.props.movies} 
+                    update={this.updateCurrent.bind(this)}
+                    selected={this.state.current}
+                />
             ))}
             </aside>
 

@@ -1,20 +1,27 @@
 @import url("typography.css");
 
-.grid {
+.App {
+  padding: 1em;
+}
+
+
+.sidebar-left {
   display: grid;
-  grid-template-columns: 100px auto;
-  grid-gap: 3em;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 75%;
+  grid-gap: 2em;
+  margin: 0 auto;
+  margin-bottom: 2em;
 }
 
-header, footer {
-  grid-column: 1 / 4;
-}
+.movies {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-rows: 1fr 1fr 1fr;
+  border-top: 3px solid #e44a66;
+  padding-top: 2em;
 
-@media all and (max-width: 700px) {
-  aside,
-  article {
-    grid-column: 1 / 4;
-  }
 }
 
 body {
@@ -32,16 +39,8 @@ footer {
   justify-content: center;
 }
 
-aside {
-  justify-content: flex-start;
-  flex-flow: column;
-}
-
-.movies {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 2em;
+.main-header h2{
+  text-align: center;
 }
 
 img {
@@ -50,19 +49,59 @@ img {
 
 .character {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  cursor: pointer;
 }
 
 .character img {
-  width: 80px;
+  width: 70px;
+  opacity: .5;
+}
+
+.character:hover h5,
+.character:hover img {
+  opacity: 1;
+  color: #e44a66;
+  transition-duration: .2s;
 }
 
 .character h5 {
   margin-top: 10px;
   text-align: center;
+  color: #8b743d;
+}
+
+.movie {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie .release {
+  margin-top: 0;
+  text-align: center
+}
+
+.movie .title {
+  text-align: center;
+}
+
+.movie img {
+  max-height: 200px;
+}
+
+.date {
+  white-space: nowrap;
 }
 
 .loader img {
   width: 100%;
+  margin-top: -15em;
 }
 
 .error > * {
@@ -72,4 +111,27 @@ img {
 
 .error .message {
   font-size: 50%;
+}
+
+.character-name {
+  display: initial;
+}
+
+@media (min-width: 320px) and (max-width: 767px)  {
+  .movies {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .character-name {
+    display: none
+  }
+
+  .character img {
+    width: 50px;
+}
+
+.loader img {
+  margin-top: -5em;
+}
+
 }
